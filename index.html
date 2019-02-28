@@ -96,15 +96,8 @@
 
     <script>
         document.querySelectorAll('audio').forEach(mediaEl => {
-            mediaEl.addEventListener('abort', (e) => {
-                console.log('abort', e.target);
-            });
-            mediaEl.addEventListener('emptied', (e) => {
-                console.log('emptied', e.target);
-            });
             mediaEl.addEventListener('pause', (e) => {
-                e.target.removeAttribute('src');
-                e.target.load();
+                e.target.parentNode.removeChild(e.target);
             })
         });
     </script>
